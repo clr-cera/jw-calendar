@@ -4,4 +4,4 @@
 
 ## Usage:
 
-Set `ID_USP` and `ID_PASS` environment variables accordingly and run `jw-calendar.py`.
+Set `ID_USP` and `PASS_USP` environment variables accordingly and run `jw-calendar.py`.
