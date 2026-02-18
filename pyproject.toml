@@ -1,0 +1,11 @@
+[project]
+name = "jw-calendar"
+version = "0.1.0"
+description = "Exports JupiterWeb class schedule to iCalendar format"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "chompjs>=1.4.0",
+    "icalendar>=7.0.0",
+    "requests>=2.32.5",
+]
