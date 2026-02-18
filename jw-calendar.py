@@ -75,9 +75,9 @@ def main():
     sched_res = s.post(JW_SCHED, data=jw_sched_data);
     sched_s = sched_res.text;
 
-    il = [m.start() for m in re.finditer(r"}", sched_s)];
+    il = list(map(lambda o: o.start(), re.finditer(r"}", sched_s)))
     sched_js = sched_s[sched_s.find("codpes")-1:il[-2]+1];
-    sched_raw= [o for o in cj.parse_js_objects(sched_js)];
+    sched_raw= list(cj.parse_js_objects(sched_js));
 
     cal = ic.Calendar();
 
@@ -92,6 +92,7 @@ def main():
                 info_res = s.post(JW_INFO, data=jw_info_data);
                 info_s = info_res.text;
 
+                il = list(map(lambda o: o.start(), re.finditer(r"}", info_s)))
                 info_js  = info_s[info_s.find("anoIngresso")-1:il[-2]+1];
                 info_raw = next(cj.parse_js_objects(info_js));
 
