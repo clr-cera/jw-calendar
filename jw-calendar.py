@@ -55,6 +55,7 @@ def main():
 
     id_usp = os.getenv("ID_USP");
     pass_usp = os.getenv("PASS_USP");
+    program_no = os.getenv("PROGRAM_NO");
 
     if not id_usp or not pass_usp:
         print("ID_USP/PASS_USP env variables missing");
@@ -71,6 +72,9 @@ def main():
 
     jw_sched_data["scriptSessionId"] = jw_info_data["scriptSessionId"] = s.cookies.get("SSOSESSIONID");
     jw_info_data["scriptSessionId"]  = s.cookies.get("SSOSESSIONID");
+
+    if (program_no):
+        jw_sched_data['c0-param1'] = 'string:'+str(program_no);
 
     sched_res = s.post(JW_SCHED, data=jw_sched_data);
     sched_s = sched_res.text;
